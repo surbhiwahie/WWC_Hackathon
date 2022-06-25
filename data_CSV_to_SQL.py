@@ -16,7 +16,7 @@ db_connection = sqlalchemy.create_engine(
     'mysql+mysqlconnector://user:pwd@hostname/db_name?auth_plugin=mysql_native_password')
 
 ## please insert the csv URL which we need to fetch the data from
-url = 'https://raw.githubusercontent.com/NABSA/gbfs/master/systems.csv'
+url = 'https://raw.githubusercontent.com/surbhiwahie/WWC_Hackathon/main/JenAila_Furniture_Scar_ProjectPage.csv'
 s= requests.get(url).content
 df = pd.read_csv(io.StringIO(s.decode('utf-8')), error_bad_lines=False)
 
