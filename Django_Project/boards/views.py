@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Board
+from .models import KojojoItems
 
 def home(request):
-    boards = Board.objects.all()
+    items = KojojoItems.objects.all()
     #boards_name = list()
     
     #for board in boards:
@@ -11,4 +11,4 @@ def home(request):
        
     #response_html = '<br>'.join(boards_name)
     #return HttpResponse(response_html)
-    return render(request, 'home.html', {'boards':boards})
+    return render(request, 'home.html', {'items':items})
