@@ -54,16 +54,17 @@
         <img class="logo" src="{% static 'images/logo_scrape.png'%}">    
     </div>
     <div class="content">
-        <ol class="breadcrumb my-4">
+        <!-- <ol class="breadcrumb my-4">
           <li class="breadcrumb-item active"></li>
-        </ol>
+        </ol> -->
         <table class="table">
-          <thead class="thead-inverse">
+          <thead class="">
             <tr>
               <th></th>
               <th>Name</th>
               <th>Price</th>
               <th>Location</th>
+              <th>Email</th>
               <th>Link</th>
             </tr></thead>
             <tbody>
@@ -75,8 +76,8 @@
                   </td>
                   <td class="align-middle">{{ item.title_price}}</td>
                   <td class="align-middle">{{ item.title_location}}</td>
+                  <td class="align-middle">{{ item.email_id}}</td>
                   <td class="align-middle" maxlength="10"><a href={{ item.title_url}}>View Detail</a></td>
-                  <td></td>
                 </tr>
               {% endfor %}
             </tbody>
