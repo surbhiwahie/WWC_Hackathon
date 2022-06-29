@@ -9,6 +9,7 @@ class KojojoItems(models.Model):
     title_location = models.CharField(max_length=200)
     title_message = models.CharField(max_length=200)
     title_pic = models.CharField(max_length=200)
+    email_id = models.CharField(max_length=200)
     Load_Date = models.DateTimeField('date published')
 
     class Meta:
