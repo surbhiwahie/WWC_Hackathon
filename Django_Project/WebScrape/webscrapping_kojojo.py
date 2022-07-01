@@ -15,6 +15,8 @@ soup = bs(page.text, 'html.parser')
 dfs = pd.read_html(page.text)
 df = dfs[0]
 
+df = df.drop_duplicates()
+
 #clean price field and convert to float
 df["Price"] = df["Price"].str.replace("$","", regex=True)
 df["Price_float"] = df["Price"].str.replace(",","", regex=True).astype('float')
@@ -34,22 +36,29 @@ for cat in category:
 postal_codes = postals
 category = cat_lower
 
+print(f"There were {df.shape[0]} posts found")
+
 #First reducing the dataframe to search for item: Only look at items that are below a certain price
 df_price_match = df[df.Price_float < 50.0]
+
 df_price_match.loc[:,'Location'] = df_price_match.Location.str.lower()
 df_price_match.loc[:,'Name'] = df_price_match.Name.str.lower()
+print(f"There are {df_price_match.shape[0]} posts that are lower price")
+
 
 #Capture key field values and search for an item within a postal code
-for i, post in enumerate(df_price_match.Name[1:3]): #sample
+for i, post in enumerate(df_price_match.Name):
+    print(f"...searching {post}")
     Email_This_Person = False
     kojojo_price = df_price_match.iloc[i][2]
     kojojo_location = df_price_match.iloc[i][3]
     kojojo_item = df_price_match.iloc[i][1]
-    kojojo_email = df_price_match.iloc[i][4] 
+    #kojojo_email = df_price_match.iloc[i][4] 
+    kojojo_email = "donationsecondchance@gmail.com"  
     kojojo_location = kojojo_location.replace(',', "")
     kojojo_location = kojojo_location.replace('-', "")
     kojojo_url = df_price_match.iloc[i][5] 
-
+    
     for item in category:
         if(re.search(item, kojojo_item)):
             
@@ -57,9 +66,9 @@ for i, post in enumerate(df_price_match.Name[1:3]): #sample
                 if(i =="scarborough" or i in postal_codes):
                     Email_This_Person = True
     if Email_This_Person:
-        print(f"\n\nEmail This person @{kojojo_email}! They are selling {kojojo_item} for {kojojo_price} at {kojojo_location}")
+        print("----------------------------------------------------------------------------------------------------------------------------")
+        print(f"FOUND KOJOJO USER WITH ITEM:")
+        print(f"Sending email to kojojo user:{kojojo_email}! They are selling {kojojo_item} for {kojojo_price} at {kojojo_location}")
         email(kojojo_email, kojojo_url, kojojo_item)
-        print("--")
-
-
-        
+        print("----------------------------------------------------------------------------------------------------------------------------")
+        print("\n\n")
