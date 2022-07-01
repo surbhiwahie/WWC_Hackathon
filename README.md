@@ -1,10 +1,10 @@
 # WWC_Hackathon
 Women Who code hackathon project for Social Good
 
-Problem Statement:
+## Problem Statement:
 There’s a societal issue regarding a lack of empathy and regard for women coming out of prison. As a result, these women are under-served, and suffer from a lack of resources, furthering the challenge to get their lives back on track.  Women who are released from prison in Ontario, Canada often have no belongings upon their release. Their number one priorities are food, shelter, and reconnection with family.  Once these needs are resolved their secondary needs are supplies: furniture, household items, clothes, etc..  This supply issue can be addressed by technology.
 
-Solution:
+## Solution:
 The goal: 
 Address the supply issue by increasing the number of physical donations provided to the non-profit, The Second Chance Foundation, in Scarborough, Ontario, Canada.  The foundation helps to provide necessities to women recently released from prison.  This goal will be met by web scraping platforms where people living in or near Scarborough are offering needed goods for free or at a low price (e.g., Kijiji, Facebook Marketplace).  The user will be emailed to ask them to consider donating their offered goods to The Second Chance Foundation instead. 
 
@@ -18,7 +18,7 @@ The item is needed by The Second Chance
 
 We used Django framework to create our localhost website (Kojojo Donations) and created a postgres database on AWS Lightsail loaded with kijiji data that was downloaded from ParseHub.com. 
 
-Notes:
+## Notes:
 The team wanted to focus on helping underprivileged women as our social good. We interviewed Beverly Dwyer, founder of The Second Chance Foundation, to understand the organization’s needs and to determine which needs can be addressed with technology.
 
 The team discussed a few platforms to search for items (Kijiji, Craigslist, and Facebook Marketplace) but decided that we needed more time to research the legalities
