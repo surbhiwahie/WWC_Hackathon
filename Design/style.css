@@ -13,8 +13,14 @@
   }
 
   .header{
-    width:30%;
+    /* width:30%; */
     margin: auto;
+    /* padding-top: 100px; */
+  }
+
+
+  .logo{
+    width: 400px;
     padding-top: 100px;
   }
 
@@ -49,7 +55,7 @@
   }
 
   /* Pagination*/
-  
+
   .pagination{
     display: flex;
     padding-bottom: 40px;
